@@ -11,15 +11,16 @@ This code is my own and was not written in collaboration with G. A. Ludueña and
 Questions or comments regarding this file can be addressed to lieke.c@nin.knaw.nl
 
 -------------------
-The class defined in this file implements the neural comparator Matchnet;
+The MatchNet class defined in this file implements the neural comparator:
 Entry point for the model is the 'step()' function which defined what the matchnet
 does during a single time step; this entails: 
-
-1-  The construction of an input vector based on the trial type (match or non-match) 
-
+1-  Combinong the two input vectors into one x1 activity vector
 2-  A feedforward pass that computes the match value x4
-
 3-  A local anti-Hebbian learning rule that updates the weights of each neuron
+
+The MatchNet_data class holds the option of random or CIFAR-10 latent features as data input.
+Each time step a sample is computed from the data class that is used by the network to train and evaluate.
+The options of having an injective transformation between the two input vectors is also available.
 
 The cosine similarity is used to inspect when two vectors are defined to be different or similar.
 This code plots the network output and cosine similarity over the last section of the timesteps for evaluation.
